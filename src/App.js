@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './App.css';
 import Movies from './components/Movies'
+import MovieDetail from './components/MovieDetail';
 
 class App extends Component {
   constructor() {
@@ -23,7 +24,8 @@ class App extends Component {
     return (
       <main className='App'>
         <h1>Petruscent P🥔tato</h1>
-        <Movies movies={this.state.movies}/>
+        {/* <Movies movies={this.state.movies}/> */}
+        <MovieDetail id={436270}/>
       </main>
     );
   }
