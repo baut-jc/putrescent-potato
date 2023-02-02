@@ -1,0 +1,17 @@
+.movies-display {
+	padding-bottom: 3rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+img {
+  width: auto;
+  height: 200px;
+  padding: 20px;
+  padding-bottom: 0px;
+}
+.movies-display img:hover {
+  transform: scale(.8);
+  opacity: .5;
+  -webkit-box-reflect: below 3px
+    linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
+}
