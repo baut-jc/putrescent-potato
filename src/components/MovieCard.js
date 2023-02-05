@@ -5,9 +5,9 @@ const MovieCard = ({ movieToDisplay }) => {
   //
   
   return (
-    <div className='movie-card'>
-      <img src={movieToDisplay.poster_path}/>
-    </div>
+      <div className='movie-card'>
+        <img src={movieToDisplay.poster_path}/>
+      </div>
   )
 }
 
