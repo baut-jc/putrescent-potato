@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import './MovieDetail.css'
 
 class MovieDetail extends Component {
@@ -19,15 +20,18 @@ class MovieDetail extends Component {
 
   render() {
     return(
-      <div style={{backgroundImage: `url(${this.state.movieData.backdrop_path})`}}>
+      <div className='testing' style={{backgroundImage: `url(${this.state.movieData.backdrop_path})`}}>
         <h2>{this.state.movieData.title}</h2>
-        <img src={this.state.movieData.poster_path}/>
+        <img className='poster' src={this.state.movieData.poster_path}/>
         <p>{this.state.movieData.release_date}</p>
         <p>{this.state.movieData.runtime}</p>
         <p>{this.state.movieData.genres}</p>
         <p>{this.state.movieData.budget}</p>
         <p>{this.state.movieData.revenue}</p>
         <p>{this.state.movieData.overview}</p>
+        <Link to='/'>
+          <button>Home</button>
+        </Link>
        </div>
     )
   }

@@ -1,15 +1,16 @@
 import React from "react";
 import MovieCard from "./MovieCard";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Movies.css";
 
 const Movies = ({ movies }) => {
   //array inside params
   const movieCards = movies.map((movie) => {
     return (
-      <NavLink to={`/${movie.id}`} key={movie.id}>
-        <MovieCard movieToDisplay={movie} />
-      </NavLink>
+      <Link className='link' to={`/${movie.id}`} key={movie.id}>
+        {/* <MovieCard className='movie' movieToDisplay={movie} /> */}
+        <img className="movie" src={movie.poster_path} />
+      </Link>
     );
   });
 
