@@ -10,15 +10,26 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
+      error: '',
     };
   }
 
   componentDidMount() {
     fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
-      .then((response) => response.json())
+      .then((response) => {
+        console.log(response)
+        if(!response.ok) {
+          throw new Error(`${response.status}: ${response.statusText}`)
+        }
+        return response.json()
+      })
       .then((data) => {
         console.log(data);
         this.setState({ movies: data.movies });
+      })
+      .catch(error => {
+        console.log('error message', error)
+        this.setState({error: error.message})
       });
   }
 
