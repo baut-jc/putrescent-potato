@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Movies from "./components/Movies";
 import MovieDetail from "./components/MovieDetail";
+import Error from "./components/Error";
 import { Route } from "react-router-dom";
 
 class App extends Component {
@@ -35,12 +36,16 @@ class App extends Component {
             }}
           />
           <Route
+          
             path="/:id"
             render={({ match }) => {
               console.log(match);
               const movieToDisplay = this.state.movies.find(
                 (movie) => movie.id === +match.params.id
               );
+              if(!movieToDisplay) {
+                return <Error message={'404 Movie Not Found'}/>
+              }
               return <MovieDetail id={movieToDisplay.id} />;
             }}
           />
