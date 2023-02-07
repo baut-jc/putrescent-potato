@@ -3,9 +3,15 @@
 }
 
 .testing {
+  display: flex;
+  flex-direction: space-evenly;
+  justify-content: center;
   height: 100vh;
+  background-repeat: 'no-repeat';
+  padding: 5px
 }
 
 .poster {
-  width: 20%
+  height: 80%;
+  padding: 1em;
 }

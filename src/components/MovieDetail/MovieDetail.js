@@ -23,14 +23,18 @@ class MovieDetail extends Component {
   render() {
     return(
       <div className='testing' style={{backgroundImage: `url(${this.state.movieData.backdrop_path})`}}>
-        <h2>{this.state.movieData.title}</h2>
-        <img className='poster' src={this.state.movieData.poster_path}/>
-        <p>{this.state.movieData.release_date}</p>
-        <p>{this.state.movieData.runtime}</p>
-        <p>{this.state.movieData.genres}</p>
-        <p>{this.state.movieData.budget}</p>
-        <p>{this.state.movieData.revenue}</p>
-        <p>{this.state.movieData.overview}</p>
+        <div>
+          <h2>{this.state.movieData.title}</h2>
+          <img className='poster' src={this.state.movieData.poster_path}/>
+        </div>
+        <container>
+          <p>{this.state.movieData.release_date}</p>
+          <p>{this.state.movieData.runtime}</p>
+          <p>{this.state.movieData.genres}</p>
+          <p>{this.state.movieData.budget}</p>
+          <p>{this.state.movieData.revenue}</p>
+          <p>{this.state.movieData.overview}</p>
+        </container>
         <Link to='/'>
           <button>Home</button>
         </Link>
