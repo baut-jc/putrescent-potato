@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Movies from "./components/Movies/Movies";
 import MovieDetail from "./components/MovieDetail/MovieDetail";
+import NavDisplay from "./components/NavDisplay/NavDisplay";
 import Error from "./components/Error/Error";
 import { Route } from "react-router-dom";
 import fetchData from './api'
@@ -12,7 +13,7 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      feature: '', 
+      // feature: '', 
       error: '',
     };
   }
@@ -30,7 +31,6 @@ class App extends Component {
     .then((data) => {
       console.log(data);
       this.setState({ movies: data.movies });
-      this.displayTopMovies(data.movies)
     })
     .catch(error => {
       console.log('error message', error)
@@ -38,39 +38,23 @@ class App extends Component {
     });
   }
 
-  randomizeDisplay(array) {
-    const randomID = Math.floor(Math.random() * array.length)
-    return array[randomID]
-  }
-
-  //single movie to display with top rating
-  displayTopMovies(movies) {
-    const topMovies = movies.filter(movie => movie.average_rating > 8)
-    const backdrops = topMovies.map(movie => movie['backdrop_path'])
-    console.log('backDrops', backdrops)
-    const onTop = this.randomizeDisplay(backdrops)
-    console.log('classtime Soon', onTop)
-    this.setState({feature: onTop})
-  }
-
   render() {
     return (
       <main className="App">
-        <header className='top-display' style={{backgroundImage: `url(${this.state.feature})`}}>
-          <img src={logo} className="App-logo" alt="logo" />
-          
-        </header>
+        <img src={logo} className="App-logo" alt="logo" />
         <React.Fragment>
           <Route
             exact
             path="/"
-            render={() => {
-              console.log('showing main page')
-              return <Movies movies={this.state.movies} />;
-            }}
+            render={() => 
+              <>
+                <NavDisplay />
+                <Movies movies={this.state.movies} />
+              </>
+            }
           />
           <Route
-          
+            exact
             path="/:id"
             render={({ match }) => {
               console.log(match);

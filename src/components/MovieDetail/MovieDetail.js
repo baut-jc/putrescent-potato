@@ -16,6 +16,7 @@ class MovieDetail extends Component {
     // fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}`)
     //   .then(response => response.json())
       .then(data => {
+        console.log('data here', data)
         this.setState({movieData: data.movie})
       })
   }

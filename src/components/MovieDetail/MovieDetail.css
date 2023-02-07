@@ -5,13 +5,14 @@
 .testing {
   display: flex;
   flex-direction: space-evenly;
-  justify-content: center;
   height: 100vh;
-  background-repeat: 'no-repeat';
-  padding: 5px
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center
 }
 
 .poster {
-  height: 80%;
-  padding: 1em;
+  height: 60%;
+  padding-left: 1em;
+  box-shadow: 10px 10px 5px gray;
 }
