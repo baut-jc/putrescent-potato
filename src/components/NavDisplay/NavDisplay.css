@@ -1,0 +1,8 @@
+nav {
+  display: flex;
+  flex: end;
+  height: 65vh;
+  background-size: cover;
+  background-repeat: 'no-repeat';
+  margin: 4px 4px 7px 7px;
+}
