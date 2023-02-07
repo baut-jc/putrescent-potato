@@ -1,5 +1,4 @@
-//to cleanData 
-const cleanData (data) => {
+const cleanData = (data) => {
   return {
     average_rating: data.average_rating || 'No Rating Available',
     backdrop_path: data.backdrop_path,
