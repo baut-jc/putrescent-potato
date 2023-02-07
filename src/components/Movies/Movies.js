@@ -2,9 +2,9 @@ import React from "react";
 import MovieCard from "../MovieCard";
 import { Link } from "react-router-dom";
 import "./Movies.css";
+import PropTypes from "prop-types";
 
 const Movies = ({ movies }) => {
-  //array inside params
   const movieCards = movies.map((movie) => {
     return (
       <Link className='link' to={`/${movie.id}`} key={movie.id}>
@@ -18,3 +18,9 @@ const Movies = ({ movies }) => {
 };
 
 export default Movies;
+
+Movies.propTypes = {
+  movies: PropTypes.array.isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object.isRequired)
+}
+
