@@ -27,14 +27,15 @@ class MovieDetail extends Component {
           <h2>{this.state.movieData.title}</h2>
           <img className='poster' src={this.state.movieData.poster_path}/>
         </div>
-        <container>
+        <div>
           <p>{this.state.movieData.release_date}</p>
+          <p>{this.state.movieData.tagline}</p>
           <p>{this.state.movieData.runtime}</p>
           <p>{this.state.movieData.genres}</p>
           <p>{this.state.movieData.budget}</p>
           <p>{this.state.movieData.revenue}</p>
           <p>{this.state.movieData.overview}</p>
-        </container>
+        </div>
         <Link to='/'>
           <button>Home</button>
         </Link>

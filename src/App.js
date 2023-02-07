@@ -48,7 +48,6 @@ class App extends Component {
             exact
             path="/:id"
             render={({ match }) => {
-              console.log(match);
               const movieToDisplay = this.state.movies.find(
                 (movie) => movie.id === +match.params.id
               );
