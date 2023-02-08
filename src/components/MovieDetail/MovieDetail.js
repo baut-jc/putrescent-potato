@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './MovieDetail.css'
+import fetchData from '../../api'
 
 class MovieDetail extends Component {
   constructor() {
@@ -11,8 +12,9 @@ class MovieDetail extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}`)
-      .then(response => response.json())
+    fetchData(this.props.id)
+    // fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}`)
+    //   .then(response => response.json())
       .then(data => {
         this.setState({movieData: data.movie})
       })

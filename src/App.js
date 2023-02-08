@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
-import Movies from "./components/Movies";
-import MovieDetail from "./components/MovieDetail";
-import Error from "./components/Error";
+import Movies from "./components/Movies/Movies";
+import MovieDetail from "./components/MovieDetail/MovieDetail";
+import Error from "./components/Error/Error";
 import { Route } from "react-router-dom";
+import fetchData from './api'
 
 class App extends Component {
   constructor() {
@@ -15,14 +16,15 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
-      .then((response) => {
-        console.log(response)
-        if(!response.ok) {
-          throw new Error(`${response.status}: ${response.statusText}`)
-        }
-        return response.json()
-      })
+    // fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
+    //   .then((response) => {
+    //     console.log(response)
+    //     if(!response.ok) {
+    //       throw new Error(`${response.status}: ${response.statusText}`)
+    //     }
+    //     return response.json()
+    //   })
+    fetchData()
       .then((data) => {
         console.log(data);
         this.setState({ movies: data.movies });
