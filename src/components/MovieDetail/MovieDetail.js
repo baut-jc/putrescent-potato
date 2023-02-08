@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import './MovieDetail.css'
 import fetchData from '../../api'
 import cleanData from '../../utilities'
+import PropTypes from 'prop-types'
 
 class MovieDetail extends Component {
   constructor() {
@@ -46,3 +47,7 @@ class MovieDetail extends Component {
 }
 
 export default MovieDetail
+
+MovieDetail.propTypes = {
+  id: PropTypes.number.isRequired
+}
