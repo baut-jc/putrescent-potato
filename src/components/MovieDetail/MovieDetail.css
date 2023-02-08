@@ -3,9 +3,16 @@
 }
 
 .testing {
+  display: flex;
+  flex-direction: space-evenly;
   height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center
 }
 
 .poster {
-  width: 20%
+  height: 60%;
+  padding-left: 1em;
+  box-shadow: 10px 10px 5px gray;
 }

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './MovieDetail.css'
 import fetchData from '../../api'
+import cleanData from '../../utilities'
+import PropTypes from 'prop-types'
 
 class MovieDetail extends Component {
   constructor() {
@@ -13,24 +15,28 @@ class MovieDetail extends Component {
 
   componentDidMount() {
     fetchData(this.props.id)
-    // fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}`)
-    //   .then(response => response.json())
       .then(data => {
-        this.setState({movieData: data.movie})
+        const cleanedData = cleanData(data.movie)
+        this.setState({movieData: cleanedData})
       })
   }
 
   render() {
     return(
       <div className='testing' style={{backgroundImage: `url(${this.state.movieData.backdrop_path})`}}>
-        <h2>{this.state.movieData.title}</h2>
-        <img className='poster' src={this.state.movieData.poster_path}/>
-        <p>{this.state.movieData.release_date}</p>
-        <p>{this.state.movieData.runtime}</p>
-        <p>{this.state.movieData.genres}</p>
-        <p>{this.state.movieData.budget}</p>
-        <p>{this.state.movieData.revenue}</p>
-        <p>{this.state.movieData.overview}</p>
+        <div>
+          <h2>{this.state.movieData.title}</h2>
+          <img className='poster' src={this.state.movieData.poster_path}/>
+        </div>
+        <div>
+          <p>{this.state.movieData.release_date}</p>
+          <p>{this.state.movieData.tagline}</p>
+          <p>{this.state.movieData.runtime}</p>
+          <p>{this.state.movieData.genres}</p>
+          <p>{this.state.movieData.budget}</p>
+          <p>{this.state.movieData.revenue}</p>
+          <p>{this.state.movieData.overview}</p>
+        </div>
         <Link to='/'>
           <button>Home</button>
         </Link>
@@ -41,3 +47,7 @@ class MovieDetail extends Component {
 }
 
 export default MovieDetail
+
+MovieDetail.propTypes = {
+  id: PropTypes.number.isRequired
+}
