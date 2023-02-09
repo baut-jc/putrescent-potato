@@ -9,7 +9,7 @@ const Movies = ({ movies }) => {
     return (
       <Link className='link' to={`/${movie.id}`} key={movie.id}>
         {/* <MovieCard className='movie' movieToDisplay={movie} /> */}
-        <img className="movie" src={movie.poster_path} />
+        <img className="movie" id={movie.id} src={movie.poster_path} />
       </Link>
     );
   });
