@@ -16,16 +16,12 @@ class NavDisplay extends Component {
   }
 
   componentDidMount() {
-    fetchData(this.props.backdrop_path)
-      .then(data => {
-        console.log('data', data)
-        const topMovies = data.movies.filter(movie => movie.average_rating > 8)
+        const topMovies = this.props.movies.filter(movie => movie.average_rating > 4)
           const backdrops = topMovies.map(movie => movie['backdrop_path'])
           const onTop = this.randomizeDisplay(backdrops)
         this.setState({feature: onTop}, () => {
           console.log('this.state', this.state)
         })
-      })
   }
 
   render() {

@@ -39,7 +39,7 @@ class App extends Component {
             path="/"
             render={() => 
               <>
-                <NavDisplay />
+                <NavDisplay movies={this.state.movies}/>
                 <Movies movies={this.state.movies} />
               </>
             }
