@@ -23,7 +23,7 @@ class MovieDetail extends Component {
 
   render() {
     return(
-      <div className='testing' style={{backgroundImage: `url(${this.state.movieData.backdrop_path})`}}>
+      <div className='movie-detail' style={{backgroundImage: `url(${this.state.movieData.backdrop_path})`}}>
         <div>
           <h2>{this.state.movieData.title}</h2>
           <img className='poster' src={this.state.movieData.poster_path}/>
