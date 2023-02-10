@@ -11,6 +11,10 @@
   background-position: center
 }
 
+.poster-section {
+  background-color: 0, 0, 0, .5;
+}
+
 .poster {
   height: 60%;
   padding-left: 1em;

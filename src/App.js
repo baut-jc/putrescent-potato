@@ -5,15 +5,15 @@ import MovieDetail from "./components/MovieDetail/MovieDetail";
 import NavDisplay from "./components/NavDisplay/NavDisplay";
 import Error from "./components/Error/Error";
 import { Route } from "react-router-dom";
-import fetchData from './api'
-import logo from './images/potato.png'
+import fetchData from "./api";
+import logo from "./images/potato.png";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       movies: [],
-      error: '',
+      error: "",
     };
   }
 
@@ -23,9 +23,9 @@ class App extends Component {
         console.log(data);
         this.setState({ movies: data.movies });
       })
-      .catch(error => {
-        console.log('error message', error)
-        this.setState({error: error.message})
+      .catch((error) => {
+        console.log("error message", error);
+        this.setState({ error: error.message });
       });
   }
 
@@ -33,31 +33,34 @@ class App extends Component {
     return (
       <main className="App">
         <img src={logo} className="App-logo" alt="logo" />
-        <React.Fragment>
-          <Route
-            exact
-            path="/"
-            render={() => 
-              <>
-                <NavDisplay movies={this.state.movies}/>
-                <Movies movies={this.state.movies} />
-              </>
-            }
-          />
-          <Route
-            exact
-            path="/:id"
-            render={({ match }) => {
-              const movieToDisplay = this.state.movies.find(
-                (movie) => movie.id === +match.params.id
-              );
-              if(!movieToDisplay) {
-                return <Error message={'404 Movie Not Found'}/>
-              }
-              return <MovieDetail id={movieToDisplay.id} />;
-            }}
-          />
-        </React.Fragment>
+        {this.state.error && <Error message={this.state.error} />}
+        {!this.state.error && (
+          <React.Fragment>
+            <Route
+              exact
+              path="/"
+              render={() => (
+                <>
+                  <NavDisplay movies={this.state.movies} />
+                  <Movies movies={this.state.movies} />
+                </>
+              )}
+            />
+            <Route
+              exact
+              path="/:id"
+              render={({ match }) => {
+                const movieToDisplay = this.state.movies.find(
+                  (movie) => movie.id === +match.params.id
+                );
+                if (!movieToDisplay) {
+                  return <Error homeButton={true} message={"404 Movie Not Found"} />;
+                }
+                return <MovieDetail id={movieToDisplay.id} />;
+              }}
+            />
+          </React.Fragment>
+        )}
       </main>
     );
   }
