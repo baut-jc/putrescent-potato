@@ -57,8 +57,10 @@ class App extends Component {
   render() {
     return (
       <main className="App">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Form updateApp={this.updateFilterComparison} />
+        <nav className='nav'>
+          <img src={logo} className="App-logo" alt="logo" />
+          <Form updateApp={this.updateFilterComparison} />
+        </nav>
         {this.state.error && <Error message={this.state.error} />}
         {!this.state.error && (
           <React.Fragment>
