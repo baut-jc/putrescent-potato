@@ -1,5 +1,7 @@
 * {
   background-size: 100vw;
+  padding:none;
+  margin: none;
 }
 
 .movie-detail {
@@ -11,8 +13,21 @@
   background-position: center
 }
 
+.poster-section {
+  background-color: rgba(0,0,0,1);
+  /* background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0)); */
+  height: 100%;
+  width: 35%;
+  /* padding: 3em; */
+}
+
+.text-section {
+  background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
+  height: 100%;
+}
+
 .poster {
   height: 60%;
-  padding-left: 1em;
-  box-shadow: 10px 10px 5px gray;
+  /* padding-left: 1em; */
+  /* box-shadow: 10px 10px 5px gray; */
 }

@@ -2,19 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const Error = (prop) => {
+const Error = (props) => {
   return (
     <div>
-      <p>{prop.message}</p>
-      <Link to="/">
-        <button>Home</button>
-      </Link>
+      <p>{props.message}</p>
+      {props.homeButton && (
+        <Link to="/">
+          <button>Home</button>
+        </Link>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Error
+export default Error;
 
 Error.propTypes = {
-  message: PropTypes.string.isRequired
-}
+  message: PropTypes.string.isRequired,
+};
