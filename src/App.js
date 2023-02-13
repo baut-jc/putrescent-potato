@@ -57,7 +57,7 @@ class App extends Component {
   render() {
     return (
       <main className="App">
-        <nav className='nav'>
+        <nav className="nav">
           <img src={logo} className="App-logo" alt="logo" />
           <Form updateApp={this.updateFilterComparison} />
         </nav>
@@ -75,7 +75,6 @@ class App extends Component {
               )}
             />
             <Route
-              exact
               path="/:id"
               render={({ match }) => {
                 const movieToDisplay = this.state.movies.find(
@@ -97,3 +96,5 @@ class App extends Component {
 }
 
 export default App;
+
+
