@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import './Error.css'
 
 const Error = (props) => {
   return (
-    <div>
+    <div className='error'>
       <p>{props.message}</p>
       {props.homeButton && (
         <Link to="/">
