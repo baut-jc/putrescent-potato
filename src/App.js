@@ -36,11 +36,9 @@ class App extends Component {
   componentDidMount() {
     fetchData()
       .then((data) => {
-        console.log(data);
         this.setState({ movies: data.movies });
       })
       .catch((error) => {
-        console.log("error message", error);
         this.setState({ error: error.message });
       });
   }
@@ -52,6 +50,18 @@ class App extends Component {
     ) {
       this.filterMovies();
     }
+  }
+
+  findMovie(match) {
+    const movieToDisplay = this.state.movies.find(
+      (movie) => movie.id === +match.params.id
+    );
+    if (!movieToDisplay) {
+      return (
+        <Error homeButton={true} message={"404 Movie Not Found"} />
+      );
+    }
+    return <MovieDetail id={movieToDisplay.id} />;
   }
 
   render() {
@@ -77,15 +87,7 @@ class App extends Component {
             <Route
               path="/:id"
               render={({ match }) => {
-                const movieToDisplay = this.state.movies.find(
-                  (movie) => movie.id === +match.params.id
-                );
-                if (!movieToDisplay) {
-                  return (
-                    <Error homeButton={true} message={"404 Movie Not Found"} />
-                  );
-                }
-                return <MovieDetail id={movieToDisplay.id} />;
+                return this.findMovie(match)
               }}
             />
           </React.Fragment>
