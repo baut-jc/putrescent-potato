@@ -36,8 +36,8 @@ class MovieDetail extends Component {
             <div className='text-section'>
               <p>{this.state.movieData.runtime}</p>
               <p>Release Date: {this.state.movieData.release_date}</p>
-              <p>Budget: ${this.state.movieData.budget}</p>
-              <p>Revenue: ${this.state.movieData.revenue}</p>
+              <p>Budget: {this.state.movieData.budget}</p>
+              <p>Revenue: {this.state.movieData.revenue}</p>
               <p>{this.state.movieData.genres}</p>
               <p>{this.state.movieData.overview}</p>
               <Link to="/">
