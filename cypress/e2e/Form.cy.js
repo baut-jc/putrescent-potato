@@ -1,4 +1,4 @@
-describe('Main Display', () => {
+describe('Form Display', () => {
   beforeEach(() => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/', ({
       movies: [
@@ -28,19 +28,25 @@ describe('Main Display', () => {
     }))
     cy.visit('http://localhost:3000/');
   })
-   
-    it('should display logo', () => {
-      cy.get(".App-logo").should('be.visible')
-    });
-    
-    it('should display all movies', () => {
-      cy.get("#436270").should("have.attr", 'src').should('include', 'https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg')
-      cy.get("#724495").should("have.attr", 'src').should('include', "https://image.tmdb.org/t/p/original//438QXt1E3WJWb3PqNniK0tAE5c1.jpg")
-      cy.get("#1013860").should("have.attr", 'src').should('include', "https://image.tmdb.org/t/p/original//g4yJTzMtOBUTAR2Qnmj8TYIcFVq.jpg")
-    });
 
-    it('should display featured movies on top', () => {
-      cy.get('#root > main > div.top-display').should("have.attr", 'style')
-    });
-
+  it('should display the input', () => {
+    cy.get('input').should('be.visible')
   });
+
+  it('should be able to be typed into', () => {
+    cy.get('input').type('test').should('have.value', 'test')
+  });
+
+  it('should show only movies with a title that includes typed text', () => {
+    cy.get('input').type('adam')
+    cy.get('.movies-display').should('have.length', 1)
+    cy.get('#436270').should('be.visible')
+  });
+
+  it('should show all movies when typed into, then deleted', () => {
+    cy.get('input').type('adam').clear()
+    cy.get("#436270").should("have.attr", 'src').should('include', 'https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg')
+    cy.get("#724495").should("have.attr", 'src').should('include', "https://image.tmdb.org/t/p/original//438QXt1E3WJWb3PqNniK0tAE5c1.jpg")
+    cy.get("#1013860").should("have.attr", 'src').should('include', "https://image.tmdb.org/t/p/original//g4yJTzMtOBUTAR2Qnmj8TYIcFVq.jpg")
+  });
+})

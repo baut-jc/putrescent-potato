@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import './Form.css'
 
 class Form extends Component {
@@ -34,3 +35,7 @@ class Form extends Component {
 }
 
 export default Form;
+
+Form.propTypes = {
+  updateApp: PropTypes.func.isRequired,
+};

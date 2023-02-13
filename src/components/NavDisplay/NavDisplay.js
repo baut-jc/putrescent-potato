@@ -22,7 +22,6 @@ class NavDisplay extends Component {
           const backdrops = topMovies.map(movie => movie['backdrop_path'])
           const onTop = this.randomizeDisplay(backdrops)
         this.setState({feature: onTop}, () => {
-          console.log('this.state', this.state)
         })
       })
   }
