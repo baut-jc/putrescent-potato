@@ -8,7 +8,7 @@ describe('Error', () => {
   });
 
   it('should have a home button', () => {
-    cy.get('button').should('be.visible')
+    cy.get('button').contains('Home')
   });
  
   it('should return to the home page on click', () => {
