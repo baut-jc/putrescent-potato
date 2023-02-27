@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/putrescent-potato/static/css/main.65a0934f.css",
-    "main.js": "/putrescent-potato/static/js/main.eb95691d.js",
-    "static/media/potato.png": "/putrescent-potato/static/media/potato.7cd813273efa6c665b3f.png",
-    "index.html": "/putrescent-potato/index.html",
-    "main.65a0934f.css.map": "/putrescent-potato/static/css/main.65a0934f.css.map",
-    "main.eb95691d.js.map": "/putrescent-potato/static/js/main.eb95691d.js.map"
+    "main.css": "/static/css/main.65a0934f.css",
+    "main.js": "/static/js/main.fa974544.js",
+    "static/media/potato.png": "/static/media/potato.7cd813273efa6c665b3f.png",
+    "index.html": "/index.html",
+    "main.65a0934f.css.map": "/static/css/main.65a0934f.css.map",
+    "main.fa974544.js.map": "/static/js/main.fa974544.js.map"
   },
   "entrypoints": [
     "static/css/main.65a0934f.css",
-    "static/js/main.eb95691d.js"
+    "static/js/main.fa974544.js"
   ]
 }
